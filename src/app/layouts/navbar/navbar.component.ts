@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
+  isHidden: boolean = true;
+  openProfileMenu () {
+    this.isHidden = !this.isHidden;
+  }
 }
