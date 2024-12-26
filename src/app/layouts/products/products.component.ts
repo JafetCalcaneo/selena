@@ -15,7 +15,7 @@ export class ProductsComponent {
   itemWidth = 300; // Ancho del ítem (ajustar según CSS)
   folderPath: string = '../../../assets/img/';
   carousel: any;
-  images: any;
+  // images: any;
   totalImages: number = 0;
   // currentIndex: number = 0;
   isFirst: boolean = false;
@@ -35,6 +35,49 @@ export class ProductsComponent {
       url: element,
     }
   })]
+
+  images = [
+    {
+      id: 1,
+      url: "../../../assets/img/carrusel-1.webp",
+      title: "Acrilicas",
+    },
+    {
+      id: 2,
+      url: "../../../assets/img/carrusel-2.jpg",
+      title: "Esculturales",
+    },
+    {
+      id: 3,
+      url: "../../../assets/img/carrusel-3.jpg",
+      title: "Baño de acrilico",
+    },
+    {
+      id: 4,
+      url: "../../../assets/img/carrusel-4.jpg",
+      title: "Manicure",
+    },
+    {
+      id: 5,
+      url: "../../../assets/img/carrusel-5.jpg",
+      title: "Pedicure",
+    },
+    {
+      id: 6,
+      url: "../../../assets/img/carrusel-6.jpg",
+      title: "",
+    },
+    {
+      id: 7,
+      url: "../../../assets/img/carrusel-7.jpg",
+      title: "",
+    },
+    {
+      id: 8,
+      url: "../../../assets/img/carrusel-8.jpg",
+      title: "",
+    }
+  ]
   
 
 processingButton (event: Event) {

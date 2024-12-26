@@ -1,0 +1,33 @@
+section {
+    margin-bottom: 2rem;
+}
+
+
+h1 {
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-size: 3.5rem;
+}
+
+p {
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-size: 1.5rem;
+} 
+
+.banner {
+    position: relative;
+    overflow: hidden; /* Oculta cualquier contenido que exceda los límites */
+    height: 75vh; /* Ajusta la altura según lo que necesites */
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para que encaje en el contenedor */
+  }
+  

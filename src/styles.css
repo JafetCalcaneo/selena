@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+html, body {
+    margin: 0;
+    padding: 0;
     width: 100%;
+    overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
+    box-sizing: border-box;
 }

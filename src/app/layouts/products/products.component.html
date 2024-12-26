@@ -14,11 +14,11 @@
     </button>
 
     <div class="carrusel-track" id="track">
-        @for (image of imagesObjects; track image.id) {
+        @for (image of images; track image.id) {
             <div class="carrusel">
                 <div>
                     <a href="/">
-                        <h4><small>{{image.url}}</small>Más</h4>
+                        <h4>{{image.title}}</h4>
                         <picture>
                             <img [src]="image.url" alt="imagen">
                         </picture>

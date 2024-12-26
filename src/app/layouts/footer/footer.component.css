@@ -48,6 +48,7 @@
   }
   
   .footer ul li a {
+    /* display: block; */
     text-decoration: none;
     color: #ecf0f1;
     transition: color 0.3s;
