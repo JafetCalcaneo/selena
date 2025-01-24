@@ -18,13 +18,15 @@
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="icon-title">
             <div class="flex shrink-0 items-center">
-              <img class="h-8 w-auto" src="../../../assets/img/logo.png" alt="Your Company">
+              <a routerLink="" routerLinkActive="active" class="flex shrink-0 items-center">
+                <img class="h-8 w-auto" src="../../../assets/img/logo.png" alt="Your Company">
+                <span id="nav-title">Selena's Beauty</span>
+              </a>
             </div>
-            <span id="nav-title">Selena's Beauty</span>
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Acrilicas</a>
+              <a routerLink="/detailed" routerLinkActive="active" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Acrilicas</a>
               <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Escultural</a>
               <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Baño de acrilico</a>
               <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Manicure y pedicure</a>
@@ -66,7 +68,7 @@
     <div class="sm:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Acrilicas</a>
+        <a routerLink="/detailed" routerLinkActive="active" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Acrilicas</a>
         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Esculturales</a>
         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Baño acrilico</a>
         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Manicure y pedicure</a>

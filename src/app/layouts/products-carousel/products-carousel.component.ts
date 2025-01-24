@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 // import fs from 'node:fs';
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-products-carousel',
   standalone: true,
   imports: [],
-  templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  templateUrl: './products-carousel.component.html',
+  styleUrl: './products-carousel.component.css'
 })
-export class ProductsComponent {
-  
+export class ProductsCarouselComponent {
   items = [1, 2, 3, 4]; // Contenido del carrusel
   currentIndex = 1; // Índice inicial
   itemWidth = 300; // Ancho del ítem (ajustar según CSS)
