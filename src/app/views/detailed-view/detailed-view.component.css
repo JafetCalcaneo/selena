@@ -1,0 +1,21 @@
+.border {
+    border: 1px solid black;
+}
+
+.title {
+    font-family: "Quicksand", serif;
+    font-weight: bolder;
+    font-style: normal;
+}
+
+.chip {
+    font-family: "Quicksand", serif;
+    font-weight: 600 !important;
+    font-size: 3rem;
+    font-style: normal;
+    span {
+        font-family: "Quicksand", serif;
+        font-weight: 800 !important;
+        font-style: normal;
+    }
+}
