@@ -15,12 +15,12 @@
 
     <div class="carrusel-track" id="track">
         @for (image of images; track image.id) {
-            <div class="carrusel">
+            <div class="carrusel cursor-pointer" (click)="openDetailedView(image.id)">
                 <div>
-                    <a href="/">
+                    <a>
                         <h4>{{image.title}}</h4>
                         <picture>
-                            <img [src]="image.url" alt="imagen">
+                            <img [src]="image.src" alt="imagen">
                         </picture>
                     </a>
                 </div>

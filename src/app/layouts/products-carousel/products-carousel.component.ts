@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-// import fs from 'node:fs';
+import { NailsService } from '../../services/nails.service';
+import { Nail } from '../../interfaces/nail.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-carousel',
@@ -9,6 +11,9 @@ import { Component } from '@angular/core';
   styleUrl: './products-carousel.component.css'
 })
 export class ProductsCarouselComponent {
+
+  constructor(private nailService: NailsService, private router: Router) {}
+
   items = [1, 2, 3, 4]; // Contenido del carrusel
   currentIndex = 1; // Índice inicial
   itemWidth = 300; // Ancho del ítem (ajustar según CSS)
@@ -35,78 +40,90 @@ export class ProductsCarouselComponent {
     }
   })]
 
-  images = [
-    {
-      id: 1,
-      url: "../../../assets/img/foto1.jpeg",
-      title: "Acrilicas",
-    },
-    {
-      id: 2,
-      url: "../../../assets/img/foto2.jpeg",
-      title: "Esculturales",
-    },
-    {
-      id: 3,
-      url: "../../../assets/img/foto3.jpeg",
-      title: "Baño de acrilico",
-    },
-    {
-      id: 4,
-      url: "../../../assets/img/foto4.jpeg",
-      title: "Manicure",
-    },
-    {
-      id: 5,
-      url: "../../../assets/img/foto5.jpeg",
-      title: "Pedicure",
-    },
-    {
-      id: 6,
-      url: "../../../assets/img/foto6.jpeg",
-      title: "Navideñas",
-    },
-    {
-      id: 7,
-      url: "../../../assets/img/foto7.jpeg",
-      title: "",
-    },
-    {
-      id: 8,
-      url: "../../../assets/img/foto8.jpeg",
-      title: "",
-    },
-    {
-      id: 9,
-      url: "../../../assets/img/foto9.jpeg",
-      title: "",
-    },
-    {
-      id: 10,
-      url: "../../../assets/img/foto10.jpeg",
-      title: "",
-    },
-    {
-      id: 11,
-      url: "../../../assets/img/foto11.jpeg",
-      title: "",
-    },
-    {
-      id: 12,
-      url: "../../../assets/img/foto12.jpeg",
-      title: "",
-    },
-    {
-      id: 13,
-      url: "../../../assets/img/foto13.jpeg",
-      title: "",
-    }, 
-    {
-      id: 14,
-      url: "../../../assets/img/foto14.jpeg",
-      title: "",
-    }
-  ]
+  images = [] as Nail[];
+
+  ngOnInit() {
+    console.log('hola')
+    this.images = this.nailService.getAllNails();
+    console.log(this.images);
+  }
+
+  openDetailedView(idProduct: number) {
+    this.router.navigate(['/detailed', idProduct]);
+  }
+
+  // images = [
+  //   {
+  //     id: 1,
+  //     url: "../../../assets/img/foto1.jpeg",
+  //     title: "Acrilicas",
+  //   },
+  //   {
+  //     id: 2,
+  //     url: "../../../assets/img/foto2.jpeg",
+  //     title: "Esculturales",
+  //   },
+  //   {
+  //     id: 3,
+  //     url: "../../../assets/img/foto3.jpeg",
+  //     title: "Baño de acrilico",
+  //   },
+  //   {
+  //     id: 4,
+  //     url: "../../../assets/img/foto4.jpeg",
+  //     title: "Manicure",
+  //   },
+  //   {
+  //     id: 5,
+  //     url: "../../../assets/img/foto5.jpeg",
+  //     title: "Pedicure",
+  //   },
+  //   {
+  //     id: 6,
+  //     url: "../../../assets/img/foto6.jpeg",
+  //     title: "Navideñas",
+  //   },
+  //   {
+  //     id: 7,
+  //     url: "../../../assets/img/foto7.jpeg",
+  //     title: "",
+  //   },
+  //   {
+  //     id: 8,
+  //     url: "../../../assets/img/foto8.jpeg",
+  //     title: "",
+  //   },
+  //   {
+  //     id: 9,
+  //     url: "../../../assets/img/foto9.jpeg",
+  //     title: "",
+  //   },
+  //   {
+  //     id: 10,
+  //     url: "../../../assets/img/foto10.jpeg",
+  //     title: "",
+  //   },
+  //   {
+  //     id: 11,
+  //     url: "../../../assets/img/foto11.jpeg",
+  //     title: "",
+  //   },
+  //   {
+  //     id: 12,
+  //     url: "../../../assets/img/foto12.jpeg",
+  //     title: "",
+  //   },
+  //   {
+  //     id: 13,
+  //     url: "../../../assets/img/foto13.jpeg",
+  //     title: "",
+  //   }, 
+  //   {
+  //     id: 14,
+  //     url: "../../../assets/img/foto14.jpeg",
+  //     title: "",
+  //   }
+  // ]
   
 
 processingButton (event: Event) {
