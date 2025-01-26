@@ -43,9 +43,7 @@ export class ProductsCarouselComponent {
   images = [] as Nail[];
 
   ngOnInit() {
-    console.log('hola')
     this.images = this.nailService.getAllNails();
-    console.log(this.images);
   }
 
   openDetailedView(idProduct: number) {

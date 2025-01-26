@@ -17,11 +17,7 @@ export const routes: Routes = [
         component: DetailedView
     },
     {
-        path: 'not-found',
-        component: NotFoundComponent
-    },
-    {
         path: '**',
-        redirectTo: 'not-found',
+        component: NotFoundComponent
     }
 ];
