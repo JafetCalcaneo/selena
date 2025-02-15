@@ -16,6 +16,7 @@ export class AmorComponent {
   @ViewChild('containerLetter') containerLetter!: ElementRef;
   @ViewChild('heart') heart!: ElementRef | null;
   @ViewChild('heartsContainer', { static: false }) heartsContainer!: ElementRef | null;
+  @ViewChild('esconder') esconder!: ElementRef;
 
 // btnOpenElement = document.querySelector('#open')
 // btnCloseElement = document.querySelector('#close')
@@ -24,7 +25,17 @@ export class AmorComponent {
 
 constructor(private render: Renderer2) {}
 
+// ngAfterViewInit() {
+//   const rectSuperior = this.containerLetter.nativeElement.getBoundingClientRect();
+//   const topElementoSuperior = rectSuperior.top + window.scrollY;
+//   const alturaElementoSuperior = rectSuperior.height;
+//   const nuevaPosicionTop = topElementoSuperior + alturaElementoSuperior;
+  
+//   this.esconder.nativeElement.style.top = `${nuevaPosicionTop}px`;
+// }
+ishidden = true;
 openLetter() {
+  this.ishidden = false;
   const openBtn = this.openBtn.nativeElement;
   const closeBtn = this.closeBtn.nativeElement;
   const cover = this.cover.nativeElement;
@@ -79,6 +90,7 @@ closeLetter() {
 
     cover.style.zIndex = 0;
     cover.classList.remove('open-cover');
+    this.ishidden = true;
     // cover.classList.add('close-cover');
     // cover.style.transform = 'rotateX(-180deg)';
   }, 500);

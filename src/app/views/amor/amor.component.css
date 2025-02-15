@@ -49,6 +49,8 @@
   
   .container-letter {
     position: relative;
+    margin-bottom: 0;
+    /* z-index: 2; */
   }
   
   .cover {
@@ -60,7 +62,7 @@
     transition: transform .75s;
     transform-origin: top;
   }
-  
+
   .paper {
     position: absolute;
     padding: 0.9rem;
@@ -68,8 +70,8 @@
     right: 5px;
     z-index: -1;
     background: white;
-    width: 390px;
-    height: 100%;
+    width: 410px;
+    height: 380px;
     transition: all .75s;
     font-family: "Pacifico", serif;
     border-radius: 7px;
@@ -78,7 +80,7 @@
   
   .message {
     border: 3px dashed black;
-    height: 100%;
+    height: 380px;
     padding: 20px;
     font-family: "Pacifico", serif;
     font-weight: 400;
@@ -87,18 +89,28 @@
 
   
   }
+
+  .esconder {
+    z-index: 1;
+    width: 400px;
+    height: 200px;
+    background-color: #fad7df;
+    top: 390px;
+    position: absolute;
+  }
   
   .letter {
     border-left: 200px solid #ff989e;
     border-right: 200px solid #ff989e;
     border-top: 100px solid transparent;
     border-bottom: 100px solid #ff858a;
+    z-index: 3;
   }
   
   .options {
     display: flex;
     gap: 5rem;
-  
+    z-index: 4;
     & button {
       color: #ff3234;
       font-weight: 600;
@@ -136,13 +148,13 @@
       top: 0;
     }
     100% {
-      top: -120px;
+      top: -330px;
     }
   }
   
   @keyframes closePaper {
     0% {
-      top: -120px;
+      top: -330px;
     }
     100% {
       top: 0;
@@ -214,9 +226,6 @@
       width: 100%;
     }
   
-    .message {
-      font-size: 1rem;
-    }
 
   }
 
