@@ -8,7 +8,7 @@ import { AmorComponent } from './views/amor/amor.component';
 export const routes: Routes = [
     {
         path: '',
-        component: MainComponent
+        component: AmorComponent
     },
     {
         path: 'nails',
