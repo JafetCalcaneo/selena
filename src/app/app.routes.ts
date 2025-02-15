@@ -19,6 +19,10 @@ export const routes: Routes = [
         component: DetailedView
     },
     {
+        path: 'amor',
+        component: AmorComponent
+    },
+    {
         path: 'auth',
         children: [
             {
@@ -28,11 +32,7 @@ export const routes: Routes = [
         ]
     },
     {
-        path: 'amor',
-        component: AmorComponent
-    },
-    {
         path: '**',
-        component: NotFoundComponent
+        component: AmorComponent
     }
 ];
