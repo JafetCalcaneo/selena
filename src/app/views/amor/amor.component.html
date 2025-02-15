@@ -1,0 +1,15 @@
+<main>
+    <div #containerLetter class="container-letter">
+      <div #cover class="cover"></div>
+       <div #paper class="paper">
+        <div class="message" id="mainMessage">
+          Hoy, más que nunca, quiero recordarte que aunque los momentos difíciles duelan, no son todo lo que somos. Eres fuerte incluso cuando no lo sientes, valiosa incluso en tus días grises, y estoy aquí para caminar contigo hasta que vuelvas a ver tu propia luz. Te quiero, hoy y siempre.
+        </div>
+       </div>
+      <div class="letter"></div>
+    </div>
+    <div class="options">
+      <button #openBtn id="open" (click)="openLetter()">Abrir</button>
+      <button #closeBtn (click)="closeLetter()">Cerrar</button>
+    </div>
+  </main>

@@ -1,0 +1,21 @@
+main{
+    font-family: "Quicksand", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-family: "Quicksand", serif;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+    font-size: 1.7rem;
+}
+
+.form {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+    border-radius: 12px;
+}
+

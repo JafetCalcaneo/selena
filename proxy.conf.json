@@ -1,0 +1,18 @@
+{
+    "/userCtrl": {
+        "target": "http://localhost:3000/user",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/userCtrl": ""
+        }
+    },
+    "/authCtrl": {
+        "target": "http://localhost:3000/auth",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/authCtrl": ""
+        }
+    }
+}

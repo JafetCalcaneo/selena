@@ -1,20 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  isHidden: boolean = true;
-
-  
+  isProfileHidden: boolean = true;
+  isMenuHidden: boolean = true;
 
 
   openProfileMenu () {
-    this.isHidden = !this.isHidden;
+    this.isProfileHidden = !this.isProfileHidden;
   }
+
+  openMenu () {
+    this.isMenuHidden = !this.isMenuHidden;
+  }
+
 }
