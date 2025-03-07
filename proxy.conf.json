@@ -14,5 +14,13 @@
         "pathRewrite": {
             "^/authCtrl": ""
         }
-    }
+    },
+      "/nailCtrl": {
+        "target": "http://localhost:3000/nail",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+          "^/nailCtrl": ""
+        }
+      }
 }

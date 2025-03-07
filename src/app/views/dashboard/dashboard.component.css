@@ -1,0 +1,40 @@
+main {
+     /* background: linear-gradient(
+      145deg,
+      rgba(62, 67, 93, 0.115),
+       rgba(221,226,249, 200)
+    );  */
+
+    background: #2193b0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #6dd5ed, #8ccede);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(180deg, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+
+}
+
+h1 {
+    font-family: "Quicksand", serif;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.mat {
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(
+        145deg,
+        rgba(234,236,254, 0.4),
+        rgba(234,236,254, 200)
+    );
+    backdrop-filter: blur(50%);
+    -webkit-backdrop-filter: blur(50px);
+    cursor: pointer;
+
+}

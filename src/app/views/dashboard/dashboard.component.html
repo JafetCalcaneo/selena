@@ -1,0 +1,18 @@
+<main class="w-full h-72 h-screen mx-auto">
+
+<div class="grid grid-cols-2 text-center gap-4">
+@for(menu of options; track menu) {
+        <mat-card class="mat" (click)="openNailForm(menu.route)">
+                <mat-card-title>
+                    <h1>{{menu.title}}</h1>
+                </mat-card-title>
+                <mat-card-content class="mx-auto">
+                    <img class="max-w-20" [src]="menu.image">
+                </mat-card-content>
+        </mat-card>
+
+}
+
+</div>
+
+</main>

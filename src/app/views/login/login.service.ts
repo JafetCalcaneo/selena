@@ -16,6 +16,7 @@ export class LoginService {
 
   doLogin(payload: {name: string, password: string}): Observable<any> {
     const url = `${this.authUrl}/login`;
+    console.log(url)
     return this._http.post(url, payload)
     .pipe(
       map((res: any) => res),

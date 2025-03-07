@@ -1,0 +1,25 @@
+button {
+  font-family: "Quicksand", serif;
+  font-weight: 500;
+  font-style: normal;
+  color: black;
+  font-size: 1.2rem;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+label {
+  font-family: "Quicksand", serif;
+  font-weight: 500;
+  font-style: normal;
+  color: black;
+  font-size: 1.3rem;
+}
+
+h1 {
+  font-family: "Quicksand", serif;
+  font-weight: bold;
+  font-style: normal;
+  color: black;
+  font-size: 1.8rem;
+}

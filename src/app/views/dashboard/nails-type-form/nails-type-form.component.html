@@ -1,0 +1,23 @@
+<main class="w-full max-w-lg p-6 bg-white shadow-lg rounded-2xl mx-auto my-0">
+  <h1 class="text-2xl font-semibold text-gray-700 mb-4">Registrar producto</h1>
+  <form [formGroup]="nailForm" enctype="multipart/form-data" class="sm:grid sm:grid-cols-[80%_20%] gap-4">
+      <div class="mb-4">
+          <label class="block text-gray-600 text-sm font-medium" for="nombre">Nombre*</label>
+          <input type="text" id="nombre" formControlName="name" class="w-full p-3 mt-1 border rounded-lg focus:ring focus:ring-blue-300" placeholder="Ingrese el tipo de uña" required>
+      </div>
+
+      <button type="button" class="w-full p-3 border-2 sm:h-16 sm:my-auto sm:border-2 bg-[#fff8e1] rounded-lg" (click)="validateForm()" appButtonAnimation>Guardar</button>
+  </form>
+
+  <div class="types-list">
+    <h1>Tipos registrados</h1>
+    <ul>
+      @for(type of types; track type) {
+        <li>
+          <input type="text" disabled="true" [value]="type.name" class="w-full p-3 mt-1 border rounded-lg focus:ring focus:ring-blue-300">
+        </li>
+      }
+    </ul>
+  </div>
+
+  </main>
