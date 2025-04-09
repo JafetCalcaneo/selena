@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { ButtonAnimationDirective } from '../../directives/button-animation.directive';
-import { LoginService } from './login.service';
+import { LoginService } from '../../auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
@@ -43,7 +43,9 @@ export class LoginComponent {
   login() {
     const payload = this.loginForm.value;
     this._loginService.doLogin(payload).subscribe({
-      next: (res: any) => {
+      next: (res) => {
+        // console.log(res.);
+        localStorage.setItem('user', JSON.stringify(res))
         this.router.navigate(['/admin']);
         this._toastr.success(`Bienvenida ${res.name}`, 'Exito al ingresar', {
           easeTime: 100,

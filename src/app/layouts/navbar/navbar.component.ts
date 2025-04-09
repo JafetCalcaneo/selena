@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { LoginService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,14 +13,34 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
   isProfileHidden: boolean = true;
   isMenuHidden: boolean = true;
+  isLogged: boolean = false;
+
+  constructor(private _loginService: LoginService) {}
+
+  ngOnInit() {
+    this._loginService.isLogged.subscribe({
+      next: (res) => this.isLogged = res,
+    });
+  }
 
 
   openProfileMenu () {
-    this.isProfileHidden = !this.isProfileHidden;
+    console.log(this.isLogged);
+    if(this.isLogged) {
+      console.log('Entra')
+      this.isProfileHidden = !this.isProfileHidden;
+    } else {
+      this.isProfileHidden = true;
+    }
   }
 
   openMenu () {
     this.isMenuHidden = !this.isMenuHidden;
   }
+
+  logOut() {
+    this._loginService.logOut();
+  }
+
 
 }

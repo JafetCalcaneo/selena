@@ -47,7 +47,6 @@ export class ProductsCarouselComponent {
     this.nailService.getAllNails().subscribe({
       next: (res) => this.images = res.nails
     })
-    console.log(this.images)
   }
 
   openDetailedView(idProduct: number) {
