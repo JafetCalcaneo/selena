@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { environment } from '../../../enviroments/enviroment';
 import { nailType } from '../../interfaces/nailType.interface';
+import { Nail } from '../../interfaces/nail.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,16 @@ export class NailService {
     return this._http.get(url).pipe(
       map(( res: any ) => res ),
       catchError(( e: HttpErrorResponse ) => throwError(() => console.error(e)))
+    )
+  }
+
+  getAllNails(): Observable<any> {
+    const url = this.nailUrl + '/all/nails';
+    return this._http.get(url).pipe(
+      map(( res: any) => {
+        return res
+      }),
+      catchError(( e: HttpErrorResponse) => throwError(() => console.error(e)))
     )
   }
 

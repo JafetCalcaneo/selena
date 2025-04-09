@@ -20,6 +20,6 @@ export class DetailedView {
 
     ngOnInit() {
         const productId = Number(this.route.snapshot.paramMap.get('id'));
-        this.product = this.nailService.getNailById(productId);
+        // this.product = this.nailService.getNailById(productId);
     }
 }

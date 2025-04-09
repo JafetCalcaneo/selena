@@ -48,7 +48,7 @@ export class NailsFormComponent {
 
   getCategories() {
     this.nailService.getAllNailTypes().subscribe({
-      next: (( res: any) => this.types = res)
+      next: (( res: any) => this.types = res.types)
     })
   }
 
@@ -63,10 +63,8 @@ export class NailsFormComponent {
   updateFileName(event: Event) {
     const input = event.target as HTMLInputElement;
     if (!input.files || input.files.length === 0) return;
-    console.log(input.files[0]);
-    console.log(input.files);
+
     this.selectedFile = input.files[0];
-    console.log(this.selectedFile);
   }
 
   sendData() {
@@ -77,10 +75,10 @@ export class NailsFormComponent {
     formData.append('name', name);
     formData.append('description', description);
     formData.append('price', price);
-    formData.append('category', category);
+    formData.append('nailType', category);
 
     this.nailService.saveFormData(formData).subscribe({
-      next: (res) => console.log(res),
+      next: (res) => res,
     });
   }
 }

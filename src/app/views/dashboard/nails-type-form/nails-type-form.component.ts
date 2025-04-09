@@ -33,8 +33,12 @@ export class NailsTypeFormComponent {
       this.nailForm = this.formBuilder.group({
         name: ['', Validators.required],
       });
-      this.getAllTypes();
       console.log(this.types)
+    }
+
+    ngOnInit() {
+      this.getAllTypes();
+
     }
 
   get isValid() {

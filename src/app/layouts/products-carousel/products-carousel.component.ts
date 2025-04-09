@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NailsService } from '../../services/nails.service';
+import { NailService } from '../../../app/views/dashboard/nail.service';
 import { Nail } from '../../interfaces/nail.interface';
 import { Router } from '@angular/router';
 
@@ -12,12 +12,13 @@ import { Router } from '@angular/router';
 })
 export class ProductsCarouselComponent {
 
-  constructor(private nailService: NailsService, private router: Router) {}
+  constructor(private nailService: NailService, private router: Router) {}
 
   items = [1, 2, 3, 4]; // Contenido del carrusel
   currentIndex = 1; // Índice inicial
   itemWidth = 300; // Ancho del ítem (ajustar según CSS)
   folderPath: string = '../../../assets/img/';
+  urlImage: string = 'http://localhost:3000'
   carousel: any;
   // images: any;
   totalImages: number = 0;
@@ -40,10 +41,13 @@ export class ProductsCarouselComponent {
     }
   })]
 
-  images = [] as Nail[];
+  images = [] as any;
 
   ngOnInit() {
-    this.images = this.nailService.getAllNails();
+    this.nailService.getAllNails().subscribe({
+      next: (res) => this.images = res.nails
+    })
+    console.log(this.images)
   }
 
   openDetailedView(idProduct: number) {
@@ -115,14 +119,14 @@ export class ProductsCarouselComponent {
   //     id: 13,
   //     url: "../../../assets/img/foto13.jpeg",
   //     title: "",
-  //   }, 
+  //   },
   //   {
   //     id: 14,
   //     url: "../../../assets/img/foto14.jpeg",
   //     title: "",
   //   }
   // ]
-  
+
 
 processingButton (event: Event) {
   const btn = event.currentTarget as HTMLButtonElement;
@@ -145,11 +149,11 @@ processingButton (event: Event) {
   if (newLeft > 0)  newLeft = 0;
   // No puede ir más a la izquierda
   if (newLeft < maxScroll) newLeft = maxScroll; // No puede ir más a la derecha
-  
+
   // Aplicar movimiento al track
   track.style.transform = `translateX(${newLeft}px)`;
   // this.moveElement(isPrev);
-  
+
 
 }
 
@@ -175,7 +179,7 @@ processingButton (event: Event) {
 //   // this.imagesObjects = newArray;
 
 //   // if(dropedElement && !isPrev) {
-//   //   this.imagesObjects.push(dropedElement) 
+//   //   this.imagesObjects.push(dropedElement)
 //   // } else if(dropedElement && isPrev) {
 //   //   this.imagesObjects.unshift(dropedElement)
 

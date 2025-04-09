@@ -1,7 +1,10 @@
 export interface Nail {
     id: number,
-    src: string,
-    type: string,
+    image: string,
+    nailType: string,
     price: number,
-    title?: string,
+    title: string,
+    description?: string,
+    createdAt?: string,
+    updatedAt: string,
 }
