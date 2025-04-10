@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, map, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, throwError } from 'rxjs';
 import { environment } from '../../../enviroments/enviroment';
 import { nailType } from '../../interfaces/nailType.interface';
 import { Nail } from '../../interfaces/nail.interface';
@@ -11,6 +11,7 @@ import { Nail } from '../../interfaces/nail.interface';
 export class NailService {
 
   nailUrl: string = environment._proxyNail;
+  private nailsCat = new BehaviorSubject<any>([]);
 
   constructor(private _http: HttpClient) { }
 
@@ -37,7 +38,9 @@ export class NailService {
   getAllNailTypes(): Observable<any> {
     const url = this.nailUrl + '/all/types';
     return this._http.get(url).pipe(
-      map(( res: any ) => res ),
+      map(( res: any ) => {
+        return res
+      } ),
       catchError(( e: HttpErrorResponse ) => throwError(() => console.error(e)))
     )
   }
@@ -51,5 +54,10 @@ export class NailService {
       catchError(( e: HttpErrorResponse) => throwError(() => console.error(e)))
     )
   }
+
+  get nailsCatMenu(): Observable<any> {
+    return this.nailsCat.asObservable();
+  }
+
 
 }

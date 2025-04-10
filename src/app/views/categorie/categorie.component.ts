@@ -17,14 +17,12 @@ export class CategorieComponent {
     urlImage: string = 'http://localhost:3000';
 
     ngOnInit() {
-        // this.nails = this.nailService.getAllNails();
         this._nailService.getAllNails().subscribe({
           next: ((res: {nails: Nail[]}) => {
             this.nails = res.nails
           })
         })
     }
-
 
 
     openDetailedView(productId: any) {

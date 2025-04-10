@@ -16,12 +16,10 @@ export class LoginService {
   private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
 
    hasToken(): boolean {
-    console.log(!!localStorage.getItem('user'))
     return !!localStorage.getItem('user');
   }
 
   get isLogged(): Observable<boolean> {
-    console.log(`Cambia el login a:`,   this.loggedIn.asObservable().subscribe({next: (res) => res}))
     return this.loggedIn.asObservable();
   }
 
@@ -49,7 +47,6 @@ export class LoginService {
   }
 
   logOut() {
-    console.log('Logut');
     localStorage.removeItem('user');
     this.loggedIn.next(false);
     this.router.navigate(['/']);

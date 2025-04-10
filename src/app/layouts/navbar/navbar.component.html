@@ -31,10 +31,12 @@
             <div class="flex space-x-4">
               <a routerLink="/" routerLinkActive="active" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Pagina principal</a>
               <a routerLink="/nails" routerLinkActive="active" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Ver todo</a>
-              <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Acrilicas</a>
-              <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Escultural</a>
-              <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Baño de acrilico</a>
-              <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Manicure y pedicure</a>
+                @for(item of categoriesMenu; track item) {
+                    <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">{{item.name}}</a>
+                    <!-- <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Escultural</a>
+                    <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Baño de acrilico</a>
+                    <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Manicure y pedicure</a> -->
+                }
             </div>
           </div>
         </div>

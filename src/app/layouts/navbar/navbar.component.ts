@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LoginService } from '../../auth/auth.service';
+import { NailService } from '../../views/dashboard/nail.service';
 import { Subscriber, Subscription } from 'rxjs';
 
 @Component({
@@ -15,16 +16,23 @@ export class NavbarComponent {
   isProfileHidden: boolean = true;
   isMenuHidden: boolean = true;
   isLogged: boolean = false;
+  categoriesMenu: any[] = [];
+
+
   private isLoginSubscription!: Subscription;
 
-  constructor(private _loginService: LoginService) {}
+  constructor(private _loginService: LoginService, private _nailService: NailService) {}
 
   ngOnInit() {
     this.isLoginSubscription = this._loginService.isLogged.subscribe({
       next: (res) => this.isLogged = res,
     });
-  }
 
+    this._nailService.getAllNailTypes().subscribe({
+      next: (res) => this.categoriesMenu = res.types,
+    })
+
+  }
 
   openProfileMenu () {
     console.log(this.isLogged);

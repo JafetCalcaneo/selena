@@ -14,7 +14,12 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-nails-form',
   standalone: true,
-  imports: [ReactiveFormsModule, ButtonAnimationDirective, MatIconModule, RouterLink ],
+  imports: [
+    ReactiveFormsModule,
+    ButtonAnimationDirective,
+    MatIconModule,
+    RouterLink,
+  ],
   templateUrl: './nails-form.component.html',
   styleUrl: './nails-form.component.css',
 })
@@ -41,6 +46,7 @@ export class NailsFormComponent {
 
   ngOnInit() {
     this.getCategories();
+    this.bordes();
   }
 
   get isValid() {
@@ -49,8 +55,8 @@ export class NailsFormComponent {
 
   getCategories() {
     this.nailService.getAllNailTypes().subscribe({
-      next: (( res: any) => this.types = res.types)
-    })
+      next: (res: any) => (this.types = res.types),
+    });
   }
 
   validateForm() {
@@ -81,5 +87,43 @@ export class NailsFormComponent {
     this.nailService.saveFormData(formData).subscribe({
       next: (res) => res,
     });
+  }
+
+  bordes() {
+    const yColor = '#fff7ed';
+    const xColor = '#e5e7eb';
+    // const div = document.querySelector('#back-btn') as HTMLElement;
+    // if (div) {
+    //   div.style.borderTopColor = xColor;
+    //   div.style.borderBottomColor = xColor;
+    //   div.style.borderRightColor = yColor;
+    //   div.style.borderLeftColor = yColor;
+    // }
+
+    const el = document.querySelector('#boton') as HTMLElement;
+    // el.style.animation = 'bordes 1s linear infinite';
+    // el.style.
+    // el.addEventListener('mouseover', () => {
+    //   for(let i = 46; i < 360; i++) {
+    //     el.style.background = `linear-gradient(${i}deg, red, blue)`;
+    //   }
+    // });
+
+    // let angle = 55;
+    // function animateGradient() {
+    //   angle += 1;
+    //   if (angle > 360) angle = 0;
+    //   console.log('Animacion  ', angle)
+    //   el.style.background = `linear-gradient(${angle}deg, red 50%, blue)`;
+
+    //   requestAnimationFrame(animateGradient); // ejecuta en cada frame (~60 fps)
+    // }
+
+    // el.addEventListener('mouseenter', () => {
+    //   el.style.borderImage = `linear-gradient(${angle}deg, red, blue) 1`;
+    //   requestAnimationFrame(animateGradient);
+    // });
+
+
   }
 }
