@@ -21,10 +21,8 @@ export class CategorieComponent {
         this._nailService.getAllNails().subscribe({
           next: ((res: {nails: Nail[]}) => {
             this.nails = res.nails
-            console.log(res)
           })
         })
-        console.log(this.nails)
     }
 
 

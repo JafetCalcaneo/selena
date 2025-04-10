@@ -21,6 +21,7 @@ export class LoginService {
   }
 
   get isLogged(): Observable<boolean> {
+    console.log(`Cambia el login a:`,   this.loggedIn.asObservable().subscribe({next: (res) => res}))
     return this.loggedIn.asObservable();
   }
 

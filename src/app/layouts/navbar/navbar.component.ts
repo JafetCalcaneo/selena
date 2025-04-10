@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LoginService } from '../../auth/auth.service';
+import { Subscriber, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -14,11 +15,12 @@ export class NavbarComponent {
   isProfileHidden: boolean = true;
   isMenuHidden: boolean = true;
   isLogged: boolean = false;
+  private isLoginSubscription!: Subscription;
 
   constructor(private _loginService: LoginService) {}
 
   ngOnInit() {
-    this._loginService.isLogged.subscribe({
+    this.isLoginSubscription = this._loginService.isLogged.subscribe({
       next: (res) => this.isLogged = res,
     });
   }
@@ -40,6 +42,10 @@ export class NavbarComponent {
 
   logOut() {
     this._loginService.logOut();
+  }
+
+  ngOnDestroy() {
+    this.isLoginSubscription.unsubscribe();
   }
 
 

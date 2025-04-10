@@ -9,11 +9,12 @@ import { ToastrService } from 'ngx-toastr';
 import { ButtonAnimationDirective } from '../../../directives/button-animation.directive';
 import { MatIconModule } from '@angular/material/icon';
 import { NailService } from '../nail.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nails-form',
   standalone: true,
-  imports: [ReactiveFormsModule, ButtonAnimationDirective, MatIconModule],
+  imports: [ReactiveFormsModule, ButtonAnimationDirective, MatIconModule, RouterLink ],
   templateUrl: './nails-form.component.html',
   styleUrl: './nails-form.component.css',
 })
