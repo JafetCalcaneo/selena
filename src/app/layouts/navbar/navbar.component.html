@@ -32,10 +32,7 @@
               <a routerLink="/" routerLinkActive="active" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Pagina principal</a>
               <a routerLink="/nails" routerLinkActive="active" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Ver todo</a>
                 @for(item of categoriesMenu; track item) {
-                    <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">{{item.name}}</a>
-                    <!-- <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Escultural</a>
-                    <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Baño de acrilico</a>
-                    <a routerLink="**" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Manicure y pedicure</a> -->
+                    <a (click)="openCategory(item.route, item.id)" routerLinkActive="active" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white cursor-pointer" aria-current="page">{{item.name}}</a>
                 }
             </div>
           </div>
@@ -81,10 +78,9 @@
       <div class="space-y-1 px-2 pb-3 pt-2">
         <a routerLink="/" routerLinkActive="active" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Pagina principal</a>
         <a routerLink="/nails" routerLinkActive="active" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Ver todo</a>
-        <a routerLink="**" routerLinkActive="active" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Acrilicas</a>
-        <a routerLink="**" routerLinkActive="active" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Esculturales</a>
-        <a routerLink="**" routerLinkActive="active" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Baño acrilico</a>
-        <a routerLink="**" routerLinkActive="active" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">Manicure y pedicure</a>
+                @for(item of categoriesMenu; track item) {
+                    <a routerLinkActive="active" (click)="openCategory(item.route, item.id)" routerLinkActive="active" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">{{item.name}}</a>
+                }
       </div>
     </div>
   </nav>

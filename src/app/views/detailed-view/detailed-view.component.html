@@ -18,33 +18,67 @@
     </div>
 </main> -->
 
-<main class="flex flex-col md:flex-row items-center gap-6 p-6 bg-gray-50 rounded-lg shadow-lg sm:max-w-7xl mx-auto">
-    <!-- Imagen del producto -->
-    <div class="img w-full md:w-1/2 flex justify-center">
-        <img class="scale-90 rounded-lg shadow-lg max-w-full max-h-96 object-contain" [src]="product.src" alt="Imagen del producto">
+<main
+  class="flex flex-col items-center gap-6 p-6 m-7 bg-gray-50 rounded-lg shadow-xl sm:max-w-7xl mx-auto"
+>
+<div class="flex justify-start w-full">
+  <a routerLink="/nails">
+    <div
+      class="flex justify-around border-4 w-full p-1 rounded-lg border-y-orange-50 shadow cursor-pointer"
+      id="back-btn"
+    >
+      <mat-icon class="font-bold">keyboard_backspace</mat-icon>
+      <span><strong>Regresar</strong></span>
     </div>
-    
-    <!-- Información del producto -->
-    <div class="info flex flex-col gap-4 w-full md:w-1/2">
-        <!-- Tipo -->
-        <div class="type flex justify-center md:justify-start">
-            <mat-chip-set aria-label="Fish selection" class="bg-gray-200 px-4 py-2 rounded-md">
-                <mat-chip class="chip  text-gray-700">Tipo: <span>{{product.type}}</span></mat-chip>
-            </mat-chip-set>
-        </div>
-        
-        <!-- Título -->
-        <div class="title text-center md:text-left text-xl font-semibold text-gray-800">
-            Calidad garantizada
-        </div>
-        
-        <!-- Precio -->
-        <div class="price text-center md:text-left text-2xl font-bold text-green-600">
-            A partir de: ${{product.price}}
-        </div>
+  </a>
+</div>
+<div class="flex flex-col md:flex-row md:text-xl justify-between w-full">
+  <!-- Imagen del producto -->
+  @if(product) {
+  <div class="img w-full md:w-1/2 flex justify-center">
+    <img
+      class="scale-90 rounded-lg shadow-lg max-w-full max-h-96 object-contain"
+      [src]="hostUrl + product.image"
+      alt="Imagen del producto"
+      crossorigin="anonymous"
+    />
+  </div>
+  <!-- Información del producto -->
+  <div class="info flex flex-col items-center gap-4 w-full md:w-1/2 ">
+    <!-- Tipo -->
+    <div class="flex justify-center md:justify-center w-[30%]">
+      <mat-chip-set
+        aria-label="Fish selection"
+        class="bg-gray-200 px-4 py-2 rounded-md"
+      >
+        <mat-chip class="chip text-gray-700 "
+          ><span>Tipo:</span><span >{{ category }}</span></mat-chip
+        >
+      </mat-chip-set>
+    </div>
 
-        <div class="title text-center md:text-left text-xl font-semibold text-gray-800">
-            Contacto: 93-21-20-23-87
-        </div>
+    <!-- Título -->
+    <div
+      class="title text-center md:text-left text-xl md:text-3xl font-semibold text-gray-800"
+    >
+      Calidad garantizada
     </div>
+
+    <!-- Precio -->
+    <div
+      class="price text-center md:text-left text-2xl md:text-3xl font-bold text-green-600"
+    >
+      A partir de: ${{ product.price }}
+    </div>
+
+    <div
+      class="title text-center md:text-left text-xl md:text-2xl font-semibold text-gray-800"
+    >
+      Contacto: 93-21-20-23-87
+    </div>
+  </div>
+
+  }
+
+</div>
 </main>

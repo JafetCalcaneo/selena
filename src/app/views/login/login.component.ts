@@ -13,16 +13,15 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  templateUrl: './login.component.html',
-  styleUrl: 'login.component.css',
-  imports: [
-    MatCardModule,
-    ReactiveFormsModule,
-    ButtonAnimationDirective,
-    FormsModule,
-  ],
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrl: 'login.component.css',
+    imports: [
+        MatCardModule,
+        ReactiveFormsModule,
+        ButtonAnimationDirective,
+        FormsModule,
+    ]
 })
 export class LoginComponent {
   // @ts-ignore

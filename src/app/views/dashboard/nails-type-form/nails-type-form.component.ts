@@ -11,12 +11,13 @@ import { nailType } from '../../../interfaces/nailType.interface';
 import { ButtonAnimationDirective } from '../../../directives/button-animation.directive';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { getAllNailTypes } from '../../../store/nails/actions/nails.actions';
 @Component({
-  selector: 'app-nails-type-form',
-  standalone: true,
-  imports: [ReactiveFormsModule, ButtonAnimationDirective, MatIconModule, RouterLink],
-  templateUrl: './nails-type-form.component.html',
-  styleUrl: './nails-type-form.component.css'
+    selector: 'app-nails-type-form',
+    imports: [ReactiveFormsModule, ButtonAnimationDirective, MatIconModule, RouterLink],
+    templateUrl: './nails-type-form.component.html',
+    styleUrl: './nails-type-form.component.css'
 })
 export class NailsTypeFormComponent {
 
@@ -28,12 +29,12 @@ export class NailsTypeFormComponent {
     constructor(
       private formBuilder: FormBuilder,
       private _toastr: ToastrService,
-      private nailService: NailService
+      private nailService: NailService,
+      private store: Store
     ) {
       this.nailForm = this.formBuilder.group({
         name: ['', Validators.required],
       });
-      console.log(this.types)
     }
 
     ngOnInit() {
@@ -60,6 +61,7 @@ export class NailsTypeFormComponent {
       next: (( res: nailType ) => {
         this.types.push(res)
         this._toastr.success('Tipo agregado correctamente');
+        this.store.dispatch(getAllNailTypes());
       })
     })
   }
@@ -67,8 +69,7 @@ export class NailsTypeFormComponent {
   getAllTypes() {
     this.nailService.getAllNailTypes().subscribe({
       next: (( res: any) => {
-        this.types = res.types
-        console.log(this.types)
+        this.types = res
       })
     })
   }

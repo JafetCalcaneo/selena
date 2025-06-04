@@ -17,10 +17,20 @@ export const routes: Routes = [
   {
     path: 'nails',
     component: CategorieComponent,
+    runGuardsAndResolvers: 'paramsChange'
   },
   {
-    path: 'detailed/:id',
+    path: 'nails/:category/:idType',
+    component: CategorieComponent,
+    runGuardsAndResolvers: 'paramsChange'
+  },
+  {
+    path: 'detailed/:idType',
     component: DetailedView,
+  },
+  {
+    path: 'detailed/:type/:id',
+    component: DetailedView
   },
   {
     path: 'amor',

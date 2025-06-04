@@ -2,11 +2,10 @@ import { Component, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { createHearts } from './createHearts';
 
 @Component({
-  selector: 'app-amor',
-  standalone: true,
-  imports: [],
-  templateUrl: './amor.component.html',
-  styleUrl: './amor.component.css'
+    selector: 'app-amor',
+    imports: [],
+    templateUrl: './amor.component.html',
+    styleUrl: './amor.component.css'
 })
 export class AmorComponent {
   @ViewChild('openBtn') openBtn!: ElementRef;

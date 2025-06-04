@@ -14,7 +14,6 @@ export class PruebaService {
 
 
   getData() {
-    console.log(this.userUrl);
     return this._httpClient.get(`${this.userUrl}/all`)
     .pipe(
       map((res: any) => res),

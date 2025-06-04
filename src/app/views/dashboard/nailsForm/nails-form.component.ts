@@ -12,16 +12,15 @@ import { NailService } from '../nail.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-nails-form',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    ButtonAnimationDirective,
-    MatIconModule,
-    RouterLink,
-  ],
-  templateUrl: './nails-form.component.html',
-  styleUrl: './nails-form.component.css',
+    selector: 'app-nails-form',
+    imports: [
+        ReactiveFormsModule,
+        ButtonAnimationDirective,
+        MatIconModule,
+        RouterLink,
+    ],
+    templateUrl: './nails-form.component.html',
+    styleUrl: './nails-form.component.css'
 })
 export class NailsFormComponent {
   // @ts-ignore
@@ -55,7 +54,7 @@ export class NailsFormComponent {
 
   getCategories() {
     this.nailService.getAllNailTypes().subscribe({
-      next: (res: any) => (this.types = res.types),
+      next: (res: any) => (this.types = res),
     });
   }
 
@@ -85,7 +84,11 @@ export class NailsFormComponent {
     formData.append('nailType', category);
 
     this.nailService.saveFormData(formData).subscribe({
-      next: (res) => res,
+      next: (res) => {
+        this._toastr.success('¡Producto agregado correctamente!')
+        return res;
+      },
+      error: () => this._toastr.error('Ocurrió un error al agregar')
     });
   }
 

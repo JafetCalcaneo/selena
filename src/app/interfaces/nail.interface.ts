@@ -4,6 +4,7 @@ export interface Nail {
     nailType: string,
     price: number,
     title: string,
+    category?: {name: string},
     description?: string,
     createdAt?: string,
     updatedAt: string,

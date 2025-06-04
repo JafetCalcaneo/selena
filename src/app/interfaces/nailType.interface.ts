@@ -3,4 +3,5 @@ export interface nailType {
   name: string;
   createdAt: Date;
   updatedAt: Date;
+  route?: string;
 }
